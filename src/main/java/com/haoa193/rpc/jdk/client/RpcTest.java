@@ -28,6 +28,7 @@ public class RpcTest {
 
         RpcImporter<EchoService> importer = new RpcImporter<>();
         //为什么是EchoServiceImpl.class
+        //应该改为EchoService接口类,然后RpcEXporter中根据接口寻找接口实现类,
         EchoService echoService = importer.importer(EchoServiceImpl.class, new InetSocketAddress("localhost", 8088));
         System.out.println(echoService.echo("Are u OK?"));
     }
